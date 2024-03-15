@@ -34,8 +34,8 @@ def encode_and_pool(sentences, word2vec_model):
 
 
 # Load word2vec model from pickle
-with open('hn_standard_word2vec_model.pkl', 'rb') as f:
-    hn_standard_word2vec_model = pickle.load(f)
+with open('word2vec_model.pkl', 'rb') as f:
+    word2vec_model = pickle.load(f)
 
 # Create the model
 class MyModel(nn.Module):
