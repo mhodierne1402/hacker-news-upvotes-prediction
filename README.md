@@ -1,2 +1,3 @@
 # hacker-news-upvotes-prediction
-Model that takes the title of a Hacker News article and predicts the upvotes it will receive.
+
+The objective is to take the title of a Hacker News article and predict how many upvotes that article is likely to get.
