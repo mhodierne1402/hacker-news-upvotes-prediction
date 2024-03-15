@@ -9,10 +9,7 @@ Original file is located at
 
 # Import all Python libraries needed for the project
 import numpy as np
-
 import pickle
-
-
 import torch
 import torch.nn as nn
 
@@ -48,26 +45,10 @@ class MyModel(nn.Module):
         self.fc3 = nn.Linear(hidden_size2, 1)
 
     def forward(self, x):
+        print(type(x[0]), type(x[1]))
         x = self.fc1(x)
         x = self.relu(x)
         x = self.fc2(x)
         x = self.relu(x)
         x = self.fc3(x)
         return x
-
-# Create the model instance
-input_size = word2vec_model.vector_size
-hidden_size1 = 64
-hidden_size2 = 32
-model = MyModel(input_size, hidden_size1, hidden_size2)
-
-# Load the saved model state dictionary
-model.load_state_dict(torch.load('reg_model.pth'))
-
-# Set the model to evaluation mode
-model.eval()
-
-input_sentences = [sentence.split() for sentence in input]
-input_embeddings = encode_and_pool(input_sentences, word2vec_model)
-input_features = input_embeddings.clone().detach()
-output = model(input_features)
